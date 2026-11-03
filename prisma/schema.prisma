@@ -21,5 +21,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// TODO: model Categoria { ... }
-// TODO: model Produto   { ... }
+model Categoria{
+  id         @id @default(autoincrement())
+  nome       String
+  produtos   Produto[]
+}
+
+model Produto{
+  id            @id @default(autoincrement())
+  nome          String
+  preco         Float
+  categoriaId   Int
+  categoria     Categoria @relation(fields: [categoriaId], references[Id])
+}
