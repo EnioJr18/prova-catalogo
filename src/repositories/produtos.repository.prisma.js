@@ -8,5 +8,13 @@ import { prisma } from '../config/database.js';
 //   - criar um produto (guardando a referência para a categoria).
 // Dica: use `prisma.produto.*`. Tudo é assíncrono.
 export class ProdutosRepositoryPrisma {
-  // TODO: implemente os métodos descritos acima.
+  async ListarTodos() {
+    return await prisma.produto.findMany({
+      include: {categoria: true}
+    })
+  }
+
+  async criar(dados) {
+    return prisma.produto.create({data: dados})
+  }
 }
