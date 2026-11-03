@@ -15,5 +15,23 @@ export class ProdutosService {
     this.repo = produtosRepository;
     this.categoriasRepo = categoriasRepository; // para checar se a categoria existe
   }
-  // TODO: criar(dados), listar().
+  
+  async criar(dados) {
+    if (!dados.nome || dados.nome.trim() === '') {
+      throw new Error('O nome do produto é obrigatório.');
+    }
+    const preco = parseFloat(dados.preco);
+    if (isNaN(preco) || preco <= 0) {
+      throw new Error('O preço deve ser maior que 0.');
+    }
+    const categoria = await this.categoriasRepository.buscarPorId(dados.categoriaId);
+    if (!categoria) {
+      throw new Error('A categoria informada não existe.');
+    }
+    return await this.produtosRepository.criar({
+      nome: dados.nome,
+      preco: preco,
+      categoriaId: Number(dados.categoriaId)
+    });
+  }
 }

@@ -10,5 +10,15 @@ export class CategoriasService {
   constructor(categoriasRepository) {
     this.repo = categoriasRepository;
   }
-  // TODO: criar(dados), listar().
+
+  async listarTodos() {
+    return await this.repository.listarTodos()
+  }
+
+  async criar(dados) {
+    if (!dados.nome || dados.nome.trim() === '') {
+      throw new Error('O nome da categoria é obrigatório.');
+    }
+    return await this.repository.criar(dados);
+  }
 }
