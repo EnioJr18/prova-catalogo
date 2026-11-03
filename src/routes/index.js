@@ -17,7 +17,7 @@ import { Router } from 'express';
 export function criarRotas() {
   const router = Router();
 
-  // TODO: instanciar repositórios, services e controllers; declarar as rotas acima.
+ 
 
   return router;
 }
