@@ -1,0 +1,25 @@
+// Prisma Schema (SQLite). Os blocos generator/datasource já estão prontos.
+//
+// SUA TAREFA: modelar DUAS entidades com um relacionamento 1-N (um-para-muitos).
+//
+//  - Categoria: tem um nome (obrigatório).
+//  - Produto:   tem nome e preço, e PERTENCE A UMA categoria.
+//               Uma categoria pode ter VÁRIOS produtos.
+//
+// Pense em: qual lado guarda a chave estrangeira? Como declarar os dois lados do
+// relacionamento no Prisma? Que tipo usar para preço (número com casas decimais)?
+//
+// Depois de modelar, rode a migração para criar o banco e gerar o Prisma Client
+// (veja o capítulo de Prisma no site da disciplina). Só então o servidor funciona por completo.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// TODO: model Categoria { ... }
+// TODO: model Produto   { ... }

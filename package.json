@@ -1,0 +1,24 @@
+{
+  "name": "catalogo-prova",
+  "version": "1.0.0",
+  "description": "Prova prática (2 entidades, 1-N) — Catálogo (Categoria/Produto) SSR com EJS + Prisma.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "studio": "prisma studio"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.0",
+    "method-override": "^3.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.22.0"
+  }
+}

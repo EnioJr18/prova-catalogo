@@ -1,0 +1,26 @@
+<%#
+  LAYOUT BASE — o "molde" de toda página (express-ejs-layouts).
+  Cada view é renderizada e encaixada no lugar de `body` abaixo.
+
+  Lembrete das TAGS do EJS (abrem com abre-porcento e fecham com porcento-fecha):
+    - tag de IGUAL     : imprime com ESCAPE de HTML (seguro). Use para texto.
+    - tag de TRACO     : imprime HTML cru (sem escape). Use só para includes/body.
+    - tag de LOGICA    : executa JavaScript e NÃO imprime (if, for...).
+    - tag de CERQUILHA : comentário, não aparece no HTML (é este aqui).
+%>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof titulo !== 'undefined' ? titulo : 'Catálogo' %></title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <%- include('../partials/navbar') %>
+  <main class="container">
+    <%- include('../partials/flash') %>
+    <%- body %>
+  </main>
+</body>
+</html>

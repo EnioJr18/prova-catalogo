@@ -1,0 +1,11 @@
+<%#
+  VIEW: formulário de produto. Recebe { titulo, valores, categorias, erros }.
+  Monte um <form method="POST" action="/produtos"> com:
+    - nome (texto, obrigatório);
+    - preço (número, obrigatório);
+    - categoria: um <select name="categoriaId"> com uma <option> para cada item de
+      `categorias` (é aqui que o relacionamento aparece na tela).
+  Reexiba `valores` e mostre a lista de `erros` quando houver.
+%>
+<h1><%= titulo %></h1>
+<!-- TODO: bloco de erros + formulário com nome, preço e o <select> de categoria -->

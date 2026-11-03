@@ -1,0 +1,10 @@
+<%#
+  Mensagens flash (vêm de res.locals.flash, definido no app.js). Aparecem uma vez
+  após o redirect (Post-Redirect-Get) e somem na próxima navegação.
+%>
+<% if (flash.sucesso && flash.sucesso.length) { %>
+  <div class="alert alert-success"><% flash.sucesso.forEach(function (m) { %><p><%= m %></p><% }); %></div>
+<% } %>
+<% if (flash.erro && flash.erro.length) { %>
+  <div class="alert alert-error"><% flash.erro.forEach(function (m) { %><p><%= m %></p><% }); %></div>
+<% } %>
