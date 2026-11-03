@@ -11,5 +11,20 @@ export class CategoriasController {
     this.service = categoriasService;
     // Dica: "amarre" o this dos métodos usados como callback nas rotas.
   }
-  // TODO: implemente index, nova, criar.
+  async listar(req, res) {
+    const categorias = await this.service.listarTodos();
+    res.render('categorias/index', {categorias});
+  }
+  novo(req, res) {
+    res.render('categorias/form', {error: null});
+  }
+
+  async criar(req, res) {
+    try {
+      await this.service.criar(req.body);
+      res.redirect('/categorias');
+    } catch (erro) {
+      res.status(400).render('categorias/form', {erro: erro.message})
+    }
+  }
 }
